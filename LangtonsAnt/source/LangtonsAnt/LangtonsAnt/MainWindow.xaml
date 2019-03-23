@@ -1,0 +1,37 @@
+﻿<Window x:Name="toolBoxWindow" x:Class="LangtonsAnt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LangtonsAnt"
+        mc:Ignorable="d"
+        Title="ツールボックス" Height="450" Width="200" Closing="toolBoxWindow_Closing" LocationChanged="toolBoxWindow_LocationChanged">
+    <Grid Width="200" Height="450">
+        <Button x:Name="startButton" Content="開始" HorizontalAlignment="Left" Height="25" Margin="26,265,0,0" VerticalAlignment="Top" Width="100" Click="startButton_Click"/>
+        <Button x:Name="stopButton" Content="停止" HorizontalAlignment="Left" Height="25" Margin="26,304,0,0" VerticalAlignment="Top" Width="100" Click="stopButton_Click"/>
+        <Button x:Name="makeWorldButton" Content="世界を作る" HorizontalAlignment="Left" Height="25" Margin="26,147,0,0" VerticalAlignment="Top" Width="100" Click="makeWorldButton_Click"/>
+        <Label x:Name="widthLabel" Content="サイズ" HorizontalAlignment="Left" Height="30" Margin="18,16,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label x:Name="heightLabel" Content="×" HorizontalAlignment="Left" Height="28" Margin="110,15,0,0" VerticalAlignment="Top" Width="23"/>
+        <Label x:Name="antCountLabel" Content="アリの数：" HorizontalAlignment="Left" Height="30" Margin="17,101,0,0" VerticalAlignment="Top" Width="61"/>
+        <Label x:Name="antCountValueLabel" Content="0" HorizontalAlignment="Left" Height="30" Margin="83,100,0,0" VerticalAlignment="Top" Width="43" BorderBrush="Black" BorderThickness="1"/>
+        <Button x:Name="makeAntButton" Content="アリを追加" HorizontalAlignment="Left" Height="25" Margin="26,186,0,0" VerticalAlignment="Top" Width="100" Click="makeAntButton_Click"/>
+        <Label x:Name="speedLabel" Content="速度設定" HorizontalAlignment="Left" Height="30" Margin="26,337,0,0" VerticalAlignment="Top" Width="80"/>
+        <ComboBox x:Name="speedComboBox" HorizontalAlignment="Left" Height="25" Margin="26,367,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="speedComboBox_SelectionChanged">
+            <ComboBoxItem Content="すごくゆっくり"/>
+            <ComboBoxItem Content="ゆっくり"/>
+            <ComboBoxItem Content="普通"/>
+            <ComboBoxItem Content="速い"/>
+            <ComboBoxItem Content="すごく速い"/>
+            <ComboBoxItem Content="速すぎ"/>
+        </ComboBox>
+        <Button x:Name="deleteAntButton" Content="アリを削除" HorizontalAlignment="Left" Height="25" Margin="26,223,0,0" VerticalAlignment="Top" Width="100" Click="deleteAntButton_Click"/>
+        <TextBox x:Name="antWorldWidthText" HorizontalAlignment="Left" Height="30" Margin="63,14,0,0" TextWrapping="Wrap" Text="480" VerticalAlignment="Top" Width="43" VerticalContentAlignment="Center" MaxLines="1" MaxLength="4" PreviewKeyDown="InputTonumeric"/>
+        <TextBox x:Name="antWorldHeightText" HorizontalAlignment="Left" Height="30" Margin="134,14,0,0" TextWrapping="Wrap" Text="300" VerticalAlignment="Top" Width="43" VerticalContentAlignment="Center" MaxLines="1" MaxLength="4" PreviewKeyDown="InputTonumeric"/>
+        <Label x:Name="widthLabel_Copy" Content="倍率" HorizontalAlignment="Left" Height="30" Margin="18,55,0,0" VerticalAlignment="Top" Width="60"/>
+        <ComboBox x:Name="scaleComboBox" HorizontalAlignment="Left" Height="25" Margin="63,56,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="scaleComboBox_SelectionChanged">
+            <ComboBoxItem Content="×1"/>
+            <ComboBoxItem Content="×2"/>
+            <ComboBoxItem Content="×3"/>
+        </ComboBox>
+    </Grid>
+</Window>

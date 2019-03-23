@@ -1,0 +1,29 @@
+﻿<Window x:Class="LangtonsAnt.ConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LangtonsAnt"
+        mc:Ignorable="d"
+        Title="スクリーンセーバ設定" Height="300" Width="300">
+    <Grid>
+        <Button x:Name="saveButton" Content="保存" HorizontalAlignment="Left" Margin="29.614,220.057,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="saveButton_Click"/>
+        <Button x:Name="cancelButton" Content="キャンセル" HorizontalAlignment="Left" Margin="160.706,220.057,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="cancelButton_Click"/>
+        <Button x:Name="previewButton" Content="プレビュー" HorizontalAlignment="Left" Margin="29.614,176.36,0,0" VerticalAlignment="Top" Width="100" Height="25" Click="previewButton_Click"/>
+        <Label x:Name="speedLabel" Content="速度" HorizontalAlignment="Left" Height="25" Margin="29.614,10,0,0" VerticalAlignment="Top" Width="86.554"/>
+        <Label x:Name="speedLabel_Copy" Content="アリの数" HorizontalAlignment="Left" Height="25" Margin="29.614,47.8,0,0" VerticalAlignment="Top" Width="86.554"/>
+        <Label x:Name="speedLabel_Copy1" Content="アリの寿命" HorizontalAlignment="Left" Height="25" Margin="29.614,126.88,0,0" VerticalAlignment="Top" Width="86.554"/>
+        <Label x:Name="antAddSpanLabel" Content="アリ追加の間隔" HorizontalAlignment="Left" Height="25" Margin="29.614,88.12,0,0" VerticalAlignment="Top" Width="86.554"/>
+        <ComboBox x:Name="setSpeedComboBox" HorizontalAlignment="Left" Height="25" Margin="160.706,10,0,0" VerticalAlignment="Top" Width="100" SelectedIndex="1">
+            <ComboBoxItem Content="すごくゆっくり"/>
+            <ComboBoxItem Content="ゆっくり"/>
+            <ComboBoxItem Content="普通"/>
+            <ComboBoxItem Content="速い"/>
+            <ComboBoxItem Content="すごく速い"/>
+            <ComboBoxItem Content="速すぎ"/>
+        </ComboBox>
+        <TextBox x:Name="AntMaxNumTextBox" HorizontalAlignment="Left" Height="25" Margin="160.706,47.8,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" PreviewKeyDown="InputTonumeric" MaxLength="2" MaxLines="1"/>
+        <TextBox x:Name="AntAddSpanTextBox" HorizontalAlignment="Left" Height="25" Margin="160.706,88.12,0,0" TextWrapping="Wrap" Text="4000" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" PreviewKeyDown="InputTonumeric" MaxLength="6" MaxLines="1"/>
+        <TextBox x:Name="AntLifeTextBox" HorizontalAlignment="Left" Height="25" Margin="160.706,127,0,0" TextWrapping="Wrap" Text="50000" VerticalAlignment="Top" Width="100" VerticalContentAlignment="Center" PreviewKeyDown="InputTonumeric" MaxLength="8" MaxLines="1"/>
+    </Grid>
+</Window>

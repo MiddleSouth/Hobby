@@ -1,0 +1,13 @@
+﻿<Window x:Name="antWorldWindow" x:Class="LangtonsAnt.AntWorldWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LangtonsAnt"
+        mc:Ignorable="d"
+        Title="Rangton's Ant World" Height="300" Width="300" WindowStyle="None" Loaded="antWorldWindow_Loaded">
+    <Grid>
+        <Image x:Name="antWorldImage" HorizontalAlignment="Left" Height="292" Margin="0" VerticalAlignment="Top" Width="292"/>
+
+    </Grid>
+</Window>
