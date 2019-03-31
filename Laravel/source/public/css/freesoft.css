@@ -1,0 +1,30 @@
+.box
+{
+    max-width: 654px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blockquote-area
+{
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4) inset;
+    padding: 0.7rem;
+}
+
+.file-list {
+    display: flex;
+    align-items: center;
+    padding-right: 3rem;
+}
+
+.file-list::after {
+    height: 15px;
+    content: '';
+    background: radial-gradient(#000 10%, transparent 0) center/ 15px 15px;
+    flex: 1 1 auto;
+    order: 1;
+}
+
+.file-list-description {
+    order: 2;
+}

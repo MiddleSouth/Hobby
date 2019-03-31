@@ -1,0 +1,119 @@
+/*------------------------------
+ *インデックスページの横幅制限
+ *----------------------------*/
+.index-container
+{
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/*------------------------------
+ *チェックボックスの装飾
+ *----------------------------*/
+.check-input{
+	display: none;
+}
+
+.check-parts{
+	padding-left: 20px;
+	padding-bottom: 20px;
+	position:relative;
+	margin-right: 20px;
+	font-size: 1.2rem;
+}
+
+.check-parts::before{
+	content: "";
+	display: block;
+	position: absolute;
+	top: 6px;
+	left: 0;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #999;
+	border-radius: 4px;
+}
+
+.check-input:checked + .check-parts{
+	color: #9a0000;
+}
+
+.check-input:checked + .check-parts::after{
+	content: "";
+	display: block;
+	position: absolute;
+	top: 3px;
+	left: 5px;
+	width: 7px;
+	height: 14px;
+	transform: rotate(40deg);
+	border-bottom: 3px solid #9a0000;
+	border-right: 3px solid #9a0000;
+}
+
+/*------------------------------
+ *共通ボックス
+ *----------------------------*/
+div.item-box
+{
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4) inset;
+	margin-right: 1rem;
+	margin-left: 1rem;
+	padding-top: 0.5rem;
+	padding-left: 1rem;
+	padding-bottom: 0.3rem;
+}
+
+/*------------------------------
+ *イラスト一覧表示
+ *----------------------------*/
+div.illust-thumbnail-box
+{
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 650px;
+}
+
+img.thumbnail
+{
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
+	width: 280px;
+	height: 48px;
+}
+
+/*------------------------------
+ *イラスト表示
+ *----------------------------*/
+div.illust-show
+{
+	text-align: center;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: -0.7rem;
+}
+
+img.illust-main
+{
+	max-height: 83vh;
+	max-width: 100%;
+}
+
+h1.illust-title
+{
+	font-size: 1.7rem;
+}
+
+.back-to-list
+{
+	font-size: 1.5rem;
+	text-decoration-line: underline;
+	margin-top: 1rem;
+}
+
+.preview-illust
+{
+	max-height: 500px;
+}

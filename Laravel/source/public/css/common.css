@@ -1,0 +1,216 @@
+/*------------------------------
+ *共通アイテムのスタイル
+ *----------------------------*/
+@font-face {
+	font-family: illustproductsfont;
+	src: url(../fonts/hgpgyousyo.woff) format("woff"), url(../fonts/hgpgyousyo.eot) format("eot");
+}
+
+html
+{
+	min-height: 100vh;
+}
+
+body{
+	font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', 'Meiryo', Osaka, arial, helvetica, sans-serif;
+	background-image: url(../img/background/Watercolor_Paper.png);
+	background-repeat: repeat-xy;
+	padding-top: 50px; /* ヘッダーの幅は40px */
+	min-height: 100vh;
+}
+
+footer
+{
+	width: 100%;
+}
+
+p.footer
+{
+	text-align: center;
+	margin-top: 30px;
+}
+
+input.small-number
+{
+	width:3.5rem;
+	padding-left:0.5rem;
+}
+
+table.form-table td
+{
+	padding-left: 0.5rem;
+}
+
+/*------------------------------
+ *ヘッダーを細くする
+ *----------------------------*/
+.navbar {
+	min-height: 40px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.navbar-brand {
+	height: 40px;
+	margin-bottom: 0px;
+	cursor: pointer;
+}
+
+/*------------------------------
+ *リンクのフェードイン/アウトのアニメーション
+ *----------------------------*/
+#fadeBox
+{
+	pointer-events: none;
+	background-color: #FFFFFF;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	opacity: 1;
+	transition: opacity 0.5s;
+	transition-delay: 0.1s;
+	transition-timing-function: ease-out;
+	z-index: 1040; /* bootstrapのナビバーのz-indexは1030 */
+}
+
+#fadeIn
+{
+	display: none;
+}
+
+#fadeOut
+{
+	display: none;
+}
+
+#fadeIn:checked ~ #fadeBox
+{
+	opacity: 0.0;
+}
+
+#fadeOut:checked ~ #fadeBox
+{
+	opacity: 1.0;
+}
+
+/*------------------------------
+ *フェードリンクのスタイル
+ *----------------------------*/
+.link
+{
+	font-size: 1.5rem;
+	margin-bottom: 0;
+	color: #3490dc;
+	cursor: pointer;
+}
+
+.link:hover
+{
+	color: #9a0000;
+	text-decoration-line: underline;
+}
+
+.nav-bland-custom
+{
+	color: #FFFFFF;
+	font-size: 1.3rem;
+	margin-top: 0px;
+	margin-right: 20px;
+	cursor: pointer !important;
+}
+
+.nav-link
+{
+	margin-bottom: 0px;
+	cursor: pointer;
+}
+
+/*------------------------------
+ *フロートのクリア
+ *----------------------------*/
+.float-clear
+{
+	clear: both;
+}
+
+
+/*------------------------------
+ *コンテナから解放
+ *----------------------------*/
+.breaking-out {
+	margin-right: calc(50% - 50vw);
+	margin-left: calc(50% - 50vw);
+}
+
+/*------------------------------
+ *背景画像のスタイル
+ *----------------------------*/
+.background-sky
+{
+	background-image: url(../img/background/Watercolor_Paper_skyblue.png);
+}
+
+.background-gray
+{
+	background-image: url(../img/background/02-whitepaper.png);
+}
+
+.background-pink
+{
+	background-image: url(../img/background/Watercolor_Paper_Pink.png);
+}
+
+ .background-gray-red
+{
+	background-image: url(../img/background/Watercolor_Paper_gray_red.png);
+}
+
+.background-dark-gray
+{
+	background-image: url(../img/background/Watercolor_Paper_darkgray.png);
+}
+
+div.preload-background
+{
+	height: 0px;
+	width: 0px;
+}
+
+ /*------------------------------
+  *フォントのスタイル
+  *----------------------------*/
+.font-script
+{
+	font-family: 'Charm', 'illustproductsfont', cursive;
+}
+
+/*------------------------------
+ *ツリーメニューのスタイル
+ *----------------------------*/
+.tree-parent
+{
+	color: black;
+}
+
+.tree-parent:hover
+{
+	color: #9a0000;
+	text-decoration-line: underline;
+}
+
+ul.tree-item > li
+{
+	height: 0;
+	overflow: hidden;
+	transition: height 0.3s;
+}
+
+ul.tree-open > li
+{
+	/* heightはauto指定ではアニメーションしないので、具体的な高さを指定する */
+	height: 1.3rem;
+	transition: height 0.3s;
+}
+
