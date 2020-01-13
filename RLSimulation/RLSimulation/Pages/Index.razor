@@ -1,0 +1,174 @@
+﻿@page "/"
+
+@using RLSimulation.Logic
+@using System.Timers;
+@inherits RLSimulation.Model.IndexModel;
+
+<div class="d-lg-flex mx-auto">
+	<div class="maze-setting mr-5">
+		<button class="btn btn-primary d-lg-none ml-2" @onclick="ToggleSettingMenu">@SettingToggleButtonText</button>
+		<div class="@SettingCssClass d-lg-block">
+			<h2 class="mt-2">迷路の設定</h2>
+
+			<div class="pl-4">
+				<EditForm Model="@IndexData" OnValidSubmit="@CreateMaze">
+					<DataAnnotationsValidator />
+					<ValidationSummary />
+					<div class="form-group form-control-sm right-left">
+
+						<label>迷路のサイズ</label>
+						<select class="w-25 right-left-right" @bind="IndexData.MazeWidth">
+							@foreach (int num in IndexData.MazeWidthList)
+							{
+								<option value=@num>@num</option>
+							}
+						</select>
+						<span class="right-left-right">×</span>
+						<select class="w-25 right-left-right" @bind="IndexData.MazeHeight">
+							@foreach (int num in IndexData.MazeHeightList)
+							{
+								<option value=@num>@num</option>
+							}
+						</select>
+					</div>
+
+					@*<div class="form-group form-control-sm right-left">
+						<label>迷路生成のアルゴリズム</label>
+						<select class="right-left-right">
+							<option value="xxx">壁伸ばし法</option>
+						</select>
+					</div>*@
+
+					<div class="form-group form-control-sm text-right">
+						<button type="submit" class="btn btn-primary" disabled="@IsMazeCreateButtonDisabled">迷路作成</button>
+					</div>
+				</EditForm>
+			</div>
+		</div>
+
+		<EditForm Model="@IndexData" OnValidSubmit="@StartLearning">
+			<DataAnnotationsValidator />
+			<div class="@SettingCssClass d-lg-block">
+				<h2 class="mt-4">学習パラメータ設定</h2>
+
+				<div class="pl-4">
+					<ValidationMessage For="@(() => IndexData.GoalReword)" />
+					<div class="form-group form-control-sm right-left">
+						<label>ゴール時の報酬</label>
+						<input type="text" @bind="@IndexData.GoalReword" class="w-25 right-left-right" disabled="@IsAgentParameterDisabled"/>
+					</div>
+
+					<ValidationMessage For="@(() => IndexData.Alpha)" />
+					<div class="form-group form-control-sm right-left">
+						<label>学習率α（0 &lt; α &lt; 1）</label>
+						<input type="text" @bind-value="@IndexData.Alpha" class="w-25 right-left-right" disabled="@IsAgentParameterDisabled"/>
+					</div>
+
+					<ValidationMessage For="@(() => IndexData.Gamma)" />
+					<div class="form-group form-control-sm right-left">
+						<label>割引率γ（0 &lt; γ &lt; 1）</label>
+						<input type="text" @bind="@IndexData.Gamma" class="w-25 right-left-right" disabled="@IsAgentParameterDisabled"/>
+					</div>
+
+					<div class="form-group form-control-sm right-left">
+						<label>行動選択手法</label>
+						<select class="right-left-right" disabled>
+							<option value="xxx">ε-グリーディ法</option>
+						</select>
+					</div>
+
+					<ValidationMessage For="@(() => IndexData.Epsilon)" />
+					<div class="form-group form-control-sm right-left">
+						<label>ε（0 &lt; ε &lt; 1）</label>
+						<input type="text" @bind="@IndexData.Epsilon" class="w-25 right-left-right" disabled="@IsAgentParameterDisabled"/>
+					</div>
+				</div>
+
+				<h2 class="mt-4">アニメーション設定</h2>
+
+				<div class="pl-4">
+					<div class="form-group form-control-sm right-left">
+						<label class="right-left">アニメーションスピード</label>
+						<select class="right-left-right" @onchange="SetInterval">
+							@foreach (KeyValuePair<int, string> pair in IndexData.AnimationSpeedList)
+							{
+								<option value=@pair.Key>@pair.Value</option>
+							}
+						</select>
+					</div>
+
+					<div class="form-group form-control-sm">
+						<label>
+							<input type="checkbox" class="check-input" @bind="@IndexData.IsStopWhenGoal" /><span class="check-parts">ゴールしたら一時停止する</span>
+						</label>
+					</div>
+
+					<div class="form-group form-control-sm">
+						<label>
+							<input type="checkbox" class="check-input" @bind="@IndexData.IsStopWhenBestRoot" /><span class="check-parts">最短経路に到達したら終了する</span>
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group form-control-sm text-lg-right">
+				<button type="submit" class="btn btn-primary">学習開始</button>
+				<button type="button" @onclick="StopLearning" class="btn btn-primary">一時停止</button>
+				<button type="button" @onclick="ClearAgent" class="btn btn-primary">クリア</button>
+			</div>
+		</EditForm>
+	</div>
+
+	<div class="maze-area mt-lg-5 align-content-center">
+		@if (MazeCellViews != null)
+		{
+			<table>
+				@for (int y = 0; y < EnvMaze.Height; y++)
+				{
+					<tr>
+						@for (int x = 0; x < EnvMaze.Width; x++)
+						{
+							<td class="maze @MazeCellViews[x,y].CellCssClass">
+								<span class="@MazeCellViews[x,y].TestCssClass">@MazeCellViews[x, y].Text</span>
+							</td>
+						}
+					</tr>
+				}
+			</table>
+		}
+
+		<div class="form-group form-control-sm">
+			<select @bind="IndexData.SkipActCount">
+				<option value="10">10</option>
+				<option value="100">100</option>
+				<option value="1000">1000</option>
+			</select>
+			<label class="ml-1">回行動</label>
+			<button type="button" @onclick="SkipActions" class="btn btn-primary py-0" disabled="@IsSkipButtonDisabled">スキップ</button>
+		</div>
+		<div class="form-group form-control-sm">
+			<select @bind="IndexData.SkipGoalCount">
+				<option value="1">1</option>
+				<option value="10">10</option>
+				<option value="100">100</option>
+			</select>
+			<label class="ml-1">回ゴール後まで</label>
+			<button type="button" @onclick="SkipGoals" class="btn btn-primary py-0" disabled="@IsSkipButtonDisabled">スキップ</button>
+		</div>
+
+
+		@if (Agent != null)
+		{
+			<ul class="mt-2">
+				<li>行動回数　：@Agent.ActCount</li>
+				<li>ゴール回数：@Agent.LearningCount</li>
+				<li>最大行動回数：@Agent.MaxActCount</li>
+				<li>最小行動回数：@Agent.MinActCount</li>
+				<li>最短経路：@EnvMaze.ShortestStep.ToString() ステップ</li>
+			</ul>
+			<span class="text-success font-weight-bold ml-2">@IndexData.AgentStateMessage</span>
+		}
+
+	</div>
+</div>
+
