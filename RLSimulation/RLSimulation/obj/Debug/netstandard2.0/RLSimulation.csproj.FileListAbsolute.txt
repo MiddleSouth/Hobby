@@ -66,8 +66,6 @@ D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\staticweba
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RLSimulation.RazorComponent.input.cache
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RazorDeclaration\App.razor.g.cs
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RazorDeclaration\Pages\Index.razor.g.cs
-D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
-D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RazorDeclaration\Shared\NavMenu.razor.g.cs
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RazorDeclaration\_Imports.razor.g.cs
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RazorDeclaration\RLSimulation.dll
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RLSimulation.TagHelpers.input.cache
@@ -75,8 +73,6 @@ D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RLSimulati
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RLSimulation.RazorCoreGenerate.cache
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\Razor\App.razor.g.cs
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\Razor\Pages\Index.razor.g.cs
-D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\Razor\Shared\MainLayout.razor.g.cs
-D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\Razor\Shared\NavMenu.razor.g.cs
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\Razor\_Imports.razor.g.cs
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RLSimulation.AssemblyInfoInputs.cache
 D:\MyProgram\Hobby\RLSimulation\RLSimulation\obj\Debug\netstandard2.0\RLSimulation.AssemblyInfo.cs

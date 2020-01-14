@@ -111,6 +111,14 @@ div.preload-background {
 }
 
 /*------------------------------
+ *バリデーションメッセージ
+ *----------------------------*/
+div.validation-message{
+	font-size : smaller;
+	color : red;
+}
+
+/*------------------------------
  *チェックボックスの装飾
  *----------------------------*/
 .check-input {
@@ -157,6 +165,10 @@ div.preload-background {
 /*------------------------------
  *左右よせ
  *----------------------------*/
+.maze-setting{
+	width:350px;
+}
+
 .right-left {
 	display: flex;
 }
@@ -177,9 +189,12 @@ div.preload-background {
  *迷路
  *----------------------------*/
 td.maze{
-	width: 20px;
-	height: 20px;
-	font-size: 15px;
+	width: 28px;
+	height: 28px;
 	text-align:center;
+}
+
+.bg-shortest-path{
+	background-color: #F0F0FF;
 }
 

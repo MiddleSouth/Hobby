@@ -44,7 +44,7 @@ using RLSimulation.Shared;
 
 #line default
 #line hidden
-    public class CommonLayout : LayoutComponentBase
+    public partial class CommonLayout : LayoutComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
